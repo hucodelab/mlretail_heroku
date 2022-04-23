@@ -1,0 +1,80 @@
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Inputs ML</title>
+    </head>
+    <body>
+
+        <div>
+            <h1>Using Machine Learning to predict the results of an e-commerce offer</h1>
+            <p>This web app used Machine Learning to predict whether or not a customer will complete
+                an offer. Accuracy = 93%
+            </p>
+            <p>Enter the customer and offer information:</p>
+
+        </div>
+
+        <form action="{% url 'result' %}">
+
+        {% csrf_token %}
+
+            <fieldset>
+                <div>
+                    <label>Customer's data</label> <br><br>
+                    age: <input type="text" name="age" id="age" required> <br>
+                    income: <input type="text" name="income" id="income" required> <br>
+                    days_as_member: <input type="text" name="dam" id="dam" required> <br>
+                    number_of_transactions: <input type="text" name="not" id="not" required> <br>
+                    total_amount_spent: <input type="text" name="tot_am" id="tot_am" required> <br><br>
+                    <label>Gender</label> <br>
+                    <select required name="gender" id="offer type">
+                        <option selected disabled value="Select">Select a value</option>
+                        <option>Fememine</option>
+                        <option>Masculine</option>
+                        <option>Other</option>
+                    </select>            
+
+                </div>
+            </fieldset><br>
+
+            <fieldset>
+                <div>
+                    <label>Offer's data</label> <br><br>
+                    reward: <input type="text" name="reward" id="reward" required> $ <br>
+                    difficulty (minimun spent ($) to complete the offer): <input type="text" name="difficulty" id="difficulty" required> $ <br>
+                    duration: <input type="text" name="duration" id="duration" required> days <br>
+                </div>
+
+                <div>
+                    <label>Offer's type</label> <br>
+                    <select required name="offer_type" id="offer type">
+                        <option selected disabled value="Select">Select a value</option>
+                        <option>BOGO (buy-one-get-one)</option>
+                        <option>Discount</option>
+                        <option>Informational</option>
+                    </select>
+                </div><br>
+
+                <div>
+                    <label>Select the channel(s) used to send the offer</label> <br>
+                    <input type="checkbox" name="web_channel" value="web_channel">WEB
+                    <input type="checkbox" name="email_channel" value="email_channel">e-mail
+                    <input type="checkbox" name="mobile_channel" value="mobile_channel">Mobile
+                    <input type="checkbox" name="social_channel" value="social_channel">Social media
+                </div>
+            </fieldset><br>
+
+            <fieldset>
+                <div>
+                    <label>Comments or feedback (not required):</label> <br>
+                    <textarea row="6" style="width: 26em" id="feedback" name="feedback"></textarea>
+                </div>
+            </fieldset>
+
+            <button type="submit" name="" value="submit">Predict</button>
+
+        </form>
+
+
+    </body>
+</html>
